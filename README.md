@@ -52,3 +52,9 @@ INFO:tensorflow:global_step/sec: 1.38253
 INFO:tensorflow:loss = 5.1599884, step = 201 (72.339 sec)
 ```
 20% speedup? may not really worth it since building tf takes couple of hours.
+
+## Hanging when running tf
+```log
+2018-02-14 20:43:11.179530: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1195] Creating TensorFlow device (/device:GPU:0) -> (device: 0, name: Tesla K80, pci bus id: 0000:00:1e.0, compute capability: 3.7)
+```
+One time thing when running TF for first time, wait. or just do `sudo reboot`.
