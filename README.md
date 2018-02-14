@@ -32,3 +32,23 @@ No other information, just throw this error and exit.
 Reason: `tf.nn.embedding_lookup` is out of boundary.
 
 One can create `dummy_loss = tf.reduce_sum(Xc_embd)` and now you see where the error comes from.
+
+## Speed comparision: 1.5.0 vs. 1.6.0rc0 build from source
+1.5.0:
+```log
+INFO:tensorflow:global_step/sec: 1.03983
+INFO:tensorflow:loss = 5.2569094, step = 101 (96.172 sec)
+INFO:tensorflow:global_step/sec: 1.25702
+INFO:tensorflow:loss = 5.145889, step = 201 (79.551 sec)
+INFO:tensorflow:global_step/sec: 1.06523
+INFO:tensorflow:loss = 4.992849, step = 301 (93.876 sec)
+```
+1.6.0rc0
+```log
+INFO:tensorflow:loss = 5.260799, step = 1
+INFO:tensorflow:global_step/sec: 1.36537
+INFO:tensorflow:loss = 5.2473655, step = 101 (73.240 sec)
+INFO:tensorflow:global_step/sec: 1.38253
+INFO:tensorflow:loss = 5.1599884, step = 201 (72.339 sec)
+```
+20% speedup? may not really worth it since building tf takes couple of hours.
