@@ -25,3 +25,10 @@ while True:
 ```python
 sess.run(input_data.input_fn(ModeKeys.TRAIN)[0])
 ```
+
+## exit code 139 (interrupted by signal 11: SIGSEGV)
+No other information, just throw this error and exit.
+
+Reason: `tf.nn.embedding_lookup` is out of boundary.
+
+One can create `dummy_loss = tf.reduce_sum(Xc_embd)` and now you see where the error comes from.
