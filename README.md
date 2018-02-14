@@ -1,5 +1,5 @@
 # tf-troubleshooting
-Quick tricks for troubleshooting TF 
+Tips and tricks for troubleshooting TF 
 
 ## Test `input_fn` only
 Give a dummy `model_fn`
