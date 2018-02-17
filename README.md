@@ -58,3 +58,25 @@ INFO:tensorflow:loss = 5.1599884, step = 201 (72.339 sec)
 2018-02-14 20:43:11.179530: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1195] Creating TensorFlow device (/device:GPU:0) -> (device: 0, name: Tesla K80, pci bus id: 0000:00:1e.0, compute capability: 3.7)
 ```
 One time thing when running TF for first time, wait. or just do `sudo reboot`.
+
+## Get certain time from [B,T,D] tensor
+```python
+    import numpy as np
+
+    B = 1
+    T = 10
+    D = 128
+    a = tf.constant(np.random.random([B, T, D]))
+    x = tf.constant([[1, 2, 3]])
+    sequence_length = tf.constant([1, 2, 3, 4, 5, 6, 7, 8, 9, 9])
+    with tf.Session() as sess:
+        print(sess.run(a))
+        print(sess.run(x))
+        u = tf.tile(tf.expand_dims(tf.range(0, B), 1), [1, 3])
+        s = tf.stack([u, x], axis=2)
+        print(sess.run(s))
+
+        print(sess.run(tf.shape(tf.gather_nd(a, s))))
+
+    exit()
+```
